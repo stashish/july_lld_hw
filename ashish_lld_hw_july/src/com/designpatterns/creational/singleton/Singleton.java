@@ -1,9 +1,11 @@
 package com.designpatterns.creational.singleton;
 
 public class Singleton {
-
+    String objName;
     //constructor
-    private Singleton () { }
+    private Singleton (String objectName) {
+        objName = objectName;
+    }
 
     //cold start everytime
     public static Singleton instance = null;
@@ -22,11 +24,15 @@ public class Singleton {
     // loaded when the first reference is made
     private static final class FRInstance {
         //cold start
-        private static final Singleton instance = new Singleton();
+        private static final Singleton instance = new Singleton("singleton class implemented");
     }
 
     public static Singleton getInstance() {
         return FRInstance.instance;
 
+    }
+
+    public void singletonMessage() {
+        System.out.println("This is a singleton instance of a class");
     }
 }
